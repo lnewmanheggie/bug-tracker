@@ -1,0 +1,28 @@
+.navbar {
+    height: 10rem;
+}
+
+.pending {
+    background-color: blue;
+}
+
+.button {
+    background-color: red;
+}
+
+.completed {
+    background-color: orange;
+}
+
+.input {
+    background-color: green;
+    border: 1rem solid white;
+    height: 6rem;
+}
+
+.pending,
+.button,
+.completed {
+    height: 4rem;
+    border: 1rem solid white;
+}

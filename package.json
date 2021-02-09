@@ -1,0 +1,30 @@
+{
+  "name": "bug-tracker",
+  "version": "1.0.0",
+  "description": "Application which allows users to keep track of bugs in their project code and whether they are fixed or not. App is connected with a database so multiple users can use the tracker for one project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lnewmanheggie/bug-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lnewmanheggie/bug-tracker/issues"
+  },
+  "homepage": "https://github.com/lnewmanheggie/bug-tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
