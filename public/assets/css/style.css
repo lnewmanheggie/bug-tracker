@@ -1,3 +1,6 @@
+* {
+    font-family: 'Roboto Slab', serif;
+}
 
 .navbar {
     background-color: rgb(255, 226, 61) !important;
@@ -56,20 +59,22 @@ body {
     padding: 1rem;
 }
 
-.textContainer {
-    width: 70%;
+.textContainer,
+.container {
+    width: 80%;
 }
 
 #title {
-    width: 50%;
+    width: 40%;
 }
 
 form {
     margin-bottom: 3rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
     .textContainer,
+    .container,
     #title {
         width: 100%;
     }

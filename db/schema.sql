@@ -9,12 +9,3 @@ CREATE TABLE tracker(
     completed boolean default 0
     PRIMARY KEY (id)
 );
-
-alter table tracker
-add title varchar(100);
-
-insert into tracker (title, bug, completed)
-values ("hello", "hello test", 0), ("hellsdfsdfdo", "hellosdfsdfsdfdf test", 1);
-
-delete from tracker where id = 3;
-select * from tracker;
