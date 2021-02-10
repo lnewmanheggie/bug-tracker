@@ -1,9 +1,37 @@
 const connection = require('./connection');
 
-selectAll 
+const orm = {
 
-insertOne
+    selectAll: function(table_name) {
+        return new Promise((resolve, reject) => {
+            const queryString = "SELECT * FROM ??";
+            connection.query(queryString, [table_name], (err, result) => {
+                if (err) return reject(err);
+                resolve(result);
+            })
+        })
+    },
 
-updateOne
+    insertOne: function(title, bug) {
+        return new Promise((resolve, reject) => {
+            const queryString = "INSERT INTO tracker (title, bug) VALUES (?, ?)";
+            connection.query(queryString, [title, bug], (err, result) => {
+                if (err) return reject(err);
+                resolve(result);
+            })
+        });
+    },
+ 
+    updateOne: function(id) {
+        return new Promise((resolve, reject) => {
+            const queryString = "UPDATE tracker SET completed = 1 WHERE id = ?";
+            connection.query(queryString, [id], (err, result) => {
+                if (err) return reject(err);
+                resolve(result);
+            })
+        })
+    }
+}
 
-module.exports = {};
+
+module.exports = orm;

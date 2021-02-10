@@ -1,77 +1,55 @@
-<style media="screen">
-  img {
-      height: 5rem;
-      width: 6rem;
-  }
 
-  .pending {
-      background-color: blue;
-  }
 
-  .completed {
-      background-color: orange;
-  }
-
-  .input {
-      background-color: green;
-      
-  }
-
-  .item {
-      border: 1rem solid blue;
-  }
-
-    .item2 {
-        border: 1rem solid orange;
-    }
-
-    .item, 
-    .item2 {
-        background-color: white;
-    }
-
-    .input {
-        padding: 1rem;
-    }
-
-    .pending,
-    .input,
-    .completed {
-        border: 1rem solid white;
-    }
-
-</style>
-
-<nav class="navbar navbar-light bg-light d-flex flex-column justify-content-center">
+<nav class="navbar bg-light d-flex flex-column justify-content-center">
   <h1 class="navbar-brand mb-0 h1">Bug Tracker</h1>
-  <p>An issue tracker for development projects</p>
+  <img src="/assets/img/bug_img.png" alt="bugs">
+  <p><em>An issue tracker for development projects</em></p>
 </nav>
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 pending">
-            <div class="row item">
-                <div class="col-md-12">sdsdfdf</div>
-            </div>
+            <h3>Needs Work</h3>
+            {{#each bug}}
+            {{#unless completed }}
+                <div class="row item" data-id="{{this.id}}">
+                    <div class="col-md-12">
+                        <h4>{{this.title}}</h4>
+                        <p>{{this.bug}}</p>
+                    </div>
+                </div>
+            {{/unless}}
+            {{/each}}
         </div>
         <div class="col-md-4 completed">
-            <div class="row item2">
-                <div class="col-md-12">hi</div>
-            </div>
+            <h3>Completed</h3>
+            {{#each bug}}
+            {{#if completed}}
+                <div class="row item2" data-id="{{this.id}}">
+                    <div class="col-md-12">{{this.title}}</div>
+                </div>
+            {{/if}}
+            {{/each}}
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container textContainer">
     <div class="row">
         <div class="col-md-12 input">
-            <form>
+            <form class="description-form" >
+
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label for="exampleFormControlInput1">Title of issue:</label>
+                    <input type="text" class="form-control" id="title">
                 </div>
-                <button class="btn btn-danger" type="submit">Button</button>
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Description:</label>
+                    <textarea class="form-control" name="description" id="desc" rows="3"></textarea>
+                </div>
+                <button class="btn btn-danger" type="submit">submit</button>
+
             </form>
         </div>
     </div>
 </div>
-

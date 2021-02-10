@@ -1,28 +1,72 @@
+
 .navbar {
-    height: 10rem;
+    background-color: rgb(255, 226, 61) !important;
+    padding: 1rem;
 }
 
-.pending {
-    background-color: blue;
+.navbar-brand {
+    font-size: 3rem;
 }
 
-.button {
-    background-color: red;
+img {
+    height: 5rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    padding:0.5rem;
 }
 
-.completed {
-    background-color: orange;
+body {
+    background-color: rgb(24, 167, 24);
 }
 
 .input {
-    background-color: green;
+    background-color: rgb(24, 167, 24);
+
+}
+
+.item {
     border: 1rem solid white;
-    height: 6rem;
+}
+
+.item2 {
+    border: 1rem solid white;
+}
+
+.item, 
+.item2 {
+    background-color: white;
+    margin-top: 1rem;
+}
+
+.item:hover,
+.item2:hover {
+    cursor: pointer;
 }
 
 .pending,
-.button,
 .completed {
-    height: 4rem;
-    border: 1rem solid white;
+    border: 1rem solid rgb(24, 167, 24);
+}
+
+.container {
+    padding: 1rem;
+}
+
+.textContainer {
+    width: 70%;
+}
+
+#title {
+    width: 50%;
+}
+
+form {
+    margin-bottom: 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .textContainer,
+    #title {
+        width: 100%;
+    }
 }
