@@ -30,8 +30,17 @@ const orm = {
                 resolve(result);
             })
         })
+    },
+
+    deleteOne: function(id) {
+        return new Promise((resolve, reject) => {
+            const queryString = "DELETE FROM tracker WHERE id = ?";
+            connection.query(queryString, [id], (err, result) => {
+                if (err) return reject(err);
+                resolve(result);
+            })
+        })
     }
 }
-
 
 module.exports = orm;
