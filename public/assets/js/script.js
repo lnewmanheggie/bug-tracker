@@ -23,7 +23,7 @@ item.on("click", function(event) {
     $.ajax("api/tracker/" + id, {
         type: "PUT"
     }).then(() => {
-        location.assign("/");
+        location.reload();
     })
 })
 
@@ -35,7 +35,7 @@ item2.on("click", function(event) {
     $.ajax("api/tracker/" + id, {
         type: "DELETE"
     }).then(() => {
-        location.assign("/");
+        location.reload();
     })
 })
 

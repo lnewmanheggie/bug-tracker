@@ -10,6 +10,7 @@
     <div class="row">
         <div class="col-md-8 pending">
             <h3>Needs Work</h3>
+            <p><em>Click to move to completed</em></p>
             {{#each bug}}
             {{#unless completed }}
                 <div class="row item" data-id="{{this.id}}">
@@ -23,6 +24,7 @@
         </div>
         <div class="col-md-4 completed">
             <h3>Completed</h3>
+            <p><em>Click to delete</em></p>
             {{#each bug}}
             {{#if completed}}
                 <div class="row item2" data-id="{{this.id}}">
