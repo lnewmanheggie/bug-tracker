@@ -3,6 +3,8 @@
 
 ![Screen Shot](./public/assets/img/bug-tracker-img.png)
 
+[Link to deployed app](https://thawing-dawn-74525.herokuapp.com/)
+
 ## Description
 Full stack application which allows users to keep track of bugs in their project code. App is connected with a database so multiple users can use the tracker for one project.
 
