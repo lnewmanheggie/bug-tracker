@@ -4,28 +4,54 @@ const tracker = require('../models/tracker');
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    tracker.selectAll(data => {
-        res.render("index", { bug: data });
-    })
+    tracker.selectAll()
+        .then(data => res.render("index", { bug: data }))
+        .catch(err => res.sendStatus(500));
 });
 
 router.post("/api/tracker", (req, res) => {
+    // tracker.insertOne(
+    //     [
+    //         "title", "bug"
+    //     ],
+    //     [
+    //         req.body.title, req.body.bug
+    //     ],
+    //     function (err, result) {
+    //         if (err) throw err;
+
+    //         //  res.status(200).end()
+    //         res.redirect("/");
+    //     })
     tracker.insertOne(
         [
             "title", "bug"
-        ], 
+        ],
         [
             req.body.title, req.body.bug
-        ],
-        function(result) {
-            res.status(200).end()
+        ]).then(function () {
+
+            // res.status(200)
+           res.redirect("/");
         })
-    res.redirect("/");
+        .catch(err => {
+            res.sendStatus(500)
+        })
 })
+
+// router.put("/api/tracker/:id", (req, res) => {
+//     let condition = "id = " + req.params.id;
+//     tracker.updateOne({ completed: 1 }, condition, function (result) {
+
+//         res.redirect("/");
+//     })
+// })
 
 router.put("/api/tracker/:id", (req, res) => {
     let condition = "id = " + req.params.id;
+    // console.log(condition);
     tracker.updateOne({ completed: 1 }, condition, function(result) {
+        console.log(result);
         if (result.affectedRows == 0) {
             return res.status(404).end();
         } 
@@ -35,10 +61,10 @@ router.put("/api/tracker/:id", (req, res) => {
 
 router.delete("/api/tracker/:id", (req, res) => {
     let condition = "id = " + req.params.id;
-    tracker.deleteOne(condition, function(result) {
+    tracker.deleteOne(condition, function (result) {
         if (result.affectedRows == 0) {
             return res.status(404).end();
-        } 
+        }
         res.status(200).end();
     })
 })
@@ -58,7 +84,7 @@ module.exports = router;
 //       .then(data => res.render("index", { bug: data }))
 //       .catch(err => res.status(500).end());
 // });
-      
+
 // app.post("/api/tracker", (req, res) => {
 //     orm.insertOne(req.body.title, req.body.bug)
 //     .then(res.status(200).end()) 
